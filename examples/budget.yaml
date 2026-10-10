@@ -1,0 +1,45 @@
+{
+  "dataset": "FG26",
+  "data_path": "datasets/FG26/processed/fg26_uv_ir_raman_smiles_aligned.pt",
+  "splits": "datasets/FG26/splits.npz",
+  "patch_len": [
+    20,
+    50,
+    50
+  ],
+  "stride": [
+    10,
+    25,
+    25
+  ],
+  "input_data_norm_type": "log10",
+  "spec_augment_strength": 0.0,
+  "position_noise_scale": 0.0,
+  "num_workers": 4,
+  "ngpus": 1,
+  "seed": 2026,
+  "task": "budget",
+  "log_dir": "experiments/budget",
+  "phase": "single",
+  "checkpoint": "experiments/warmup_crossattn/last.ckpt",
+  "adapter_checkpoint": "experiments/budget/step8000.pt",
+  "prepared": "datasets/FG26/task5_generated/prepared.pt",
+  "features": "datasets/FG26/task5_generated/features.pt",
+  "pairs": "datasets/FG26/task5_generated/preference_pairs.pt",
+  "batch_size": 16,
+  "steps": 8000,
+  "validate_every": 4000,
+  "preference_weight": 0.3,
+  "beam_width": 20,
+  "candidate_limit": 20,
+  "max_length": 79,
+  "budgets": [
+    9,
+    11,
+    13
+  ],
+  "input": "datasets/FG26/task5_generated/queries.csv",
+  "output": "evaluation_results/budget",
+  "preference_beta": 0.1,
+  "latent_noise": 0.0
+}

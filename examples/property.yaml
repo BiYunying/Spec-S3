@@ -1,0 +1,37 @@
+{
+  "dataset": "QM9SP",
+  "data_path": "datasets/qm9sp/processed/qm9s_with_uv_ir_raman_smiles.pt",
+  "splits": "datasets/qm9sp/splits.npz",
+  "patch_len": [
+    20,
+    50,
+    50
+  ],
+  "stride": [
+    10,
+    25,
+    25
+  ],
+  "input_data_norm_type": "log10",
+  "spec_augment_strength": 0.0,
+  "position_noise_scale": 0.005,
+  "num_workers": 4,
+  "ngpus": 1,
+  "seed": 2026,
+  "task": "property_prediction",
+  "log_dir": "experiments/property",
+  "num_epochs": 500,
+  "init_checkpoint": "checkpoints/pretrain_qm9s.ckpt",
+  "checkpoint": "experiments/property/last.ckpt",
+  "target_index": 2,
+  "dataset_arg": "homo",
+  "energy_weight": 1.0,
+  "standardize": true,
+  "prior_model": "Atomref",
+  "smiles_weight": 0.0,
+  "reconstruct_weight": 0.0,
+  "denoising_weight": 0.0,
+  "contrastive_weight": 0.0,
+  "peak_mask": false,
+  "output": "evaluation_results/property"
+}

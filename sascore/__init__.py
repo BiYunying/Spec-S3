@@ -1,1 +1,0 @@
-from .sascorer import calculateScore

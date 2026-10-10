@@ -1,0 +1,63 @@
+{
+  "dataset": "FG26",
+  "data_path": "datasets/FG26/processed/fg26_uv_ir_raman_smiles_aligned.pt",
+  "splits": "datasets/FG26/splits.npz",
+  "patch_len": [
+    20,
+    50,
+    50
+  ],
+  "stride": [
+    10,
+    25,
+    25
+  ],
+  "input_data_norm_type": "log10",
+  "spec_augment_strength": 1.0,
+  "spec_augment": true,
+  "spec_aug_clean_prob": 0.25,
+  "spec_aug_global_only_prob": 0.3,
+  "spec_aug_global_intensity_prob": 0.2,
+  "spec_aug_global_broadening_prob": 0.1,
+  "spec_aug_global_local_shift_prob": 0.15,
+  "spec_aug_ir_raman_scale_min": 0.97,
+  "spec_aug_ir_raman_scale_max": 1.03,
+  "spec_aug_ir_raman_shift_max": 20.0,
+  "spec_aug_uv_scale_min": 0.94,
+  "spec_aug_uv_scale_max": 1.06,
+  "spec_aug_uv_shift_max": 30.0,
+  "spec_aug_ir_raman_local_shift_max": 15.0,
+  "spec_aug_uv_local_shift_max": 25.0,
+  "spec_aug_ir_raman_intensity_sigma": 0.5,
+  "spec_aug_uv_intensity_sigma": 0.55,
+  "spec_aug_ir_raman_broadening_max": 4.0,
+  "spec_aug_uv_broadening_max": 10.0,
+  "position_noise_scale": 0.0,
+  "num_workers": 4,
+  "ngpus": 1,
+  "seed": 2026,
+  "task": "pretrain",
+  "log_dir": "experiments/pretrain_stage1",
+  "num_epochs": 200,
+  "batch_size": 100,
+  "chemberta_path": "datasets/ChemBERTa-77M-MTR-safetensors",
+  "reconstruct_weight": 1.0,
+  "denoising_weight": 0.0,
+  "sp_struct_contrastive_weight": 0.0,
+  "sp_smiles_contrastive_weight": 0.0,
+  "struct_smiles_contrastive_weight": 0.0,
+  "peak_mask": true,
+  "p_peak": 0.5,
+  "p_noise": 0.1,
+  "structure_checkpoint": "checkpoints/denoised-pcqm4mv2.ckpt",
+  "dataset_profiles": {
+    "fg26": {
+      "data_path": "datasets/FG26/processed/fg26_uv_ir_raman_smiles_aligned.pt",
+      "splits": "datasets/FG26/splits.npz"
+    },
+    "qm9s": {
+      "data_path": "datasets/qm9sp/processed/qm9s_with_uv_ir_raman_smiles.pt",
+      "splits": "datasets/qm9sp/splits.npz"
+    }
+  }
+}

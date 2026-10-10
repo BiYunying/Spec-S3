@@ -1,0 +1,18 @@
+{
+  "task": "multiobjective",
+  "dataset": "FG26",
+  "phase": "decoder",
+  "max_length": 79,
+  "random_smiles_probability": 0.0,
+  "batch_size": 64,
+  "num_epochs": 40,
+  "patience": 6,
+  "decoder_lr": 3e-06,
+  "weight_decay": 0.0001,
+  "unfreeze_last_decoder_blocks": 3,
+  "temperature": 1.0,
+  "top_p": 0.9,
+  "proxy_path": "proxy_models_fg26/dmpnn.pt",
+  "property_source": "proxy",
+  "topk": 50
+}

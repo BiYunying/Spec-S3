@@ -1,0 +1,55 @@
+{
+  "dataset": "FG26",
+  "data_path": "datasets/FG26/processed/fg26_uv_ir_raman_smiles_aligned.pt",
+  "splits": "datasets/FG26/splits.npz",
+  "patch_len": [
+    20,
+    50,
+    50
+  ],
+  "stride": [
+    10,
+    25,
+    25
+  ],
+  "input_data_norm_type": "log10",
+  "spec_augment_strength": 1.0,
+  "position_noise_scale": 0.0,
+  "num_workers": 4,
+  "ngpus": 1,
+  "seed": 2026,
+  "task": "scaffold_editing",
+  "log_dir": "experiments/editing",
+  "num_epochs": 150,
+  "init_checkpoint": "checkpoints/pretrain_stage2.ckpt",
+  "checkpoint": "checkpoints/editing.ckpt",
+  "beam_width": 20,
+  "candidate_limit": 20,
+  "max_length": 79,
+  "length_penalty": 1.0,
+  "energy_weight": 0.0,
+  "reconstruct_weight": 0.0,
+  "denoising_weight": 0.0,
+  "contrastive_weight": 0.0,
+  "smiles_weight": 1.0,
+  "peak_mask": false,
+  "input": "datasets/FG26/editing_queries.csv",
+  "output": "evaluation_results/editing",
+  "proxy_dir": "proxy_models_qm9s",
+  "latent_noise": 0.01,
+  "gpt_block_size": 79,
+  "gpt_n_layer": 3,
+  "gpt_n_head": 8,
+  "crossfade_start": 1750,
+  "crossfade_end": 1850,
+  "task_profiles": {
+    "ir_editing": {
+      "checkpoint": "checkpoints/region_aware.ckpt",
+      "input": "datasets/FG26/ir_queries.csv",
+      "output": "evaluation_results/ir_editing",
+      "log_dir": "experiments/ir_editing",
+      "crossfade_start": 1450,
+      "crossfade_end": 1550
+    }
+  }
+}
