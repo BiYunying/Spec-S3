@@ -19,11 +19,12 @@ python -m pip install -e . --no-deps
 
 Original public datasets: [QM9S](https://doi.org/10.6084/m9.figshare.24235333)
 and [USTC-FG26](https://huggingface.co/datasets/csllpr/USTC-FG26).
-Download the processed dataset
-[here](https://huggingface.co/datasets/biyunying/spec-s3_datasets) and place them in `datasets/<dataset>/`.
-
-Place pretrained weights in `checkpoints/` and evaluation proxies in
+Download the processed datasets and evaluation proxies
+from [Hugging Face](https://huggingface.co/datasets/biyunying/spec-s3_datasets).
+Place the datasets in `datasets/<dataset>/` and evaluation proxies in
 `proxy_models_qm9s/` and `proxy_models_fg26/`.
+Download the [pretrained checkpoints](https://huggingface.co/biyunying/spec_s3_checkpoint)
+and place them in `checkpoints/`.
 
 ## Usage
 
